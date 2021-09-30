@@ -1,10 +1,10 @@
-<!--
+/*
 File: index.html
 GUI Assignment2: Style a Site with External CSS
 Vu Ho, UMass Lowell Computer Science
 Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
 updated by VH on Sep 30, 2021 at 01:31 PM
--->
+*/
 
 header, hgroup, nav, footer, figure, figcaption, aside, section, article {
     display: block;
