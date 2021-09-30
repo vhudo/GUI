@@ -1,0 +1,101 @@
+<!--
+File: index.html
+GUI Assignment2: Style a Site with External CSS
+Vu Ho, UMass Lowell Computer Science
+Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+updated by VH on Sep 14, 2021 at 6:07 PM
+-->
+
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+    display: block;
+}
+header {
+    background: #000033 url(sunset.jpg) right no-repeat;
+    color: #ffffff;
+}
+body {
+    background: #00569f url(ptrbackground.jpg) left repeat-x;
+    margin: 20px 160px 80px 160px;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    float: left;
+    margin-right: 20px;
+}
+
+nav ul {
+    float: left;
+    width: 200px;
+    font-size: 1.2em;
+    list-style-type: none;
+   
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000033;
+}
+
+nav a:visited {
+    color: #344873;
+
+}
+nav a:hover {
+    color: #FFFFFF;
+}
+h1 {
+    margin-bottom: 0;
+    padding: 10px;
+}
+h2 {
+    color: #3399CC;
+    padding: 20px 0;
+    margin: 0;
+    
+}
+h1,
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+#wrapper {
+    min-width: 600px;
+    width: 80%;
+    background-color: #90c8e3;
+    margin: 0 auto;
+}
+
+#content{
+    background-color: #ffffff;
+    margin-left: 200px;
+    padding-left: 30px;
+    
+}
+
+#content > ul {
+    list-style: inside url('marker.gif');
+    margin: 20px 0px 20px 0;
+}
+#contact {
+    font-size: 90%;
+}
+
+dt {
+    color: #000033;
+}
+footer {
+    margin-left: 200px;
+    padding: 20px;
+    background-color: #ffffff;
+    font-style: italic;
+    font-size: 80%;
+    font-family: Georgia, "Times New Roman", serif;
+}
+.resort{
+    font-weight: bold;
+    color: #5b7f9f;
+}
+
