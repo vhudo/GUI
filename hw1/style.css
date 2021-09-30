@@ -1,0 +1,34 @@
+.img-thumbnail {
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+body {
+  font-size: 15px;
+  background-color: #99c090;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin: auto;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+mark {
+  margin: auto;
+  background: #ff6347;
+  color: #000;
+}
+
+footer {
+    padding: 20px;
+}
