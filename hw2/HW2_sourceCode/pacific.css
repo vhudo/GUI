@@ -3,19 +3,21 @@ File: index.html
 GUI Assignment2: Style a Site with External CSS
 Vu Ho, UMass Lowell Computer Science
 Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
-updated by VH on Sep 14, 2021 at 6:07 PM
+updated by VH on Sep 30, 2021 at 01:31 PM
 -->
 
 header, hgroup, nav, footer, figure, figcaption, aside, section, article {
     display: block;
 }
 header {
+    /*---color - image - position - repeat */
     background: #000033 url(sunset.jpg) right no-repeat;
     color: #ffffff;
 }
 body {
     background: #00569f url(ptrbackground.jpg) left repeat-x;
-    margin: 20px 160px 80px 160px;
+    /*top-right-botton-left*/
+    margin: 20px 10px 70px 5px;
     color: #666666;
     font-family: Arial, Helvetica, sans-serif;
 }
