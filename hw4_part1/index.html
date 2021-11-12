@@ -1,0 +1,44 @@
+<!--
+File: index.html
+GUI Assignment4: Creating an Interactive Dynamic Table
+Vu Ho, UMass Lowell Computer Science
+Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+updated by VH on Nov 11, 2021 at 11:34 PM
+-->
+
+<!DOCTYPE html>
+<html lang = "en-Us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dynamic Table</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+  </head>
+  <body>
+      <div id = "form">
+          <form id="myform">
+              <h2> Welcome to the interactive dynamic table </h2>
+              <br>
+              The number of rows: <br> <br>
+              <input id = "min_row" type = "text" name = "min_row" placeholder = "Enter row lower bound" value ="">
+              <input id = "max_row" type = "text" name = "max_row" placeholder = "Enter row upper bound" value ="">
+              <br><br>
+              The number of columns: <br> <br>
+              <input id = "min_col" type = "text" name = "min_col" placeholder = "Enter column lower bound" value ="">
+              <input id = "max_col" type = "text" name = "max_col" placeholder = "Enter column upper bound" value ="">
+            
+              
+              <br><br><br>
+              <input id = "submit-button" type = "submit" value = "Regenerate Table" >
+         
+          </form>
+      </div>
+      <div class = "container">
+          <table id = "my_table"> </table>
+      </div>
+      <script src="js/script.js"></script>
+      </div> <!-- end container div-->
+  </body>
+</html>
