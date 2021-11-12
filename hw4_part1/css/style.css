@@ -1,0 +1,114 @@
+/*
+File: style.css
+GUI Assignment4: Creating an Interactive Dynamic Table
+Vu Ho, UMass Lowell Computer Science
+Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+updated by VH on Nove 11, 2021 at 11:34 PM
+ 
+using c01.css file of in-class4
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800italic);
+
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100%;
+    
+}
+
+
+#form{
+    border: 3px double #31373f;
+    color: black;
+    padding: 10px;
+    margin: 100px 30px 20px 80px;
+    max-width: 50%;
+    float: left;
+}
+
+
+.container{
+    width: 50%;
+    height: 300px;
+    overflow: auto;
+    
+    margin: 100px 20px 30px 20px;
+    
+}
+
+table {
+    width: 50%;
+    height: 200px;
+    padding: 10px 30px;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: hide;
+    text-align: right;
+}
+
+h2{
+    text-align: center;
+    color: rgba(28, 106, 68, 0.8);
+}
+
+td.first_col{
+    position: sticky;
+    left: 0;
+    border-top: 2px solid white ;
+    border-bottom: 2px solid black ;
+    padding: 10px;
+    width: 15px;
+    height: 15px;
+    color : white;
+    background: black;
+    
+}
+
+td.top_row{
+    position: sticky;
+    top: 0;
+    border-left: 2px solid white ;
+    border-right: 2px solid black;
+    padding: 10px;
+    width: 15px;
+    height: 15px;
+    color : white;
+    background: black;
+}
+
+tr:nth-child(even) {
+    background-color: #bcbdc0;
+}
+
+td.child_table{
+    border-right: 1px solid black;
+    border-left: 2px solid black;
+    border-bottom: 1px solid black;
+    border-top: 2px solid black;
+    
+    padding: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.error{
+    color: red;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+/* Fix for full-screen background image: Chrome on Android */
+html{
+    height:100%;
+    min-height:100%;
+}
+
+
