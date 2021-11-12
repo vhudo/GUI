@@ -1,0 +1,66 @@
+<!--
+File: index.html
+GUI Assignment4: Creating an Interactive Dynamic Table
+Vu Ho, UMass Lowell Computer Science
+Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+updated by VH on Nov 11, 2021 at 11:37 PM
+-->
+
+<!DOCTYPE html>
+<html lang = "en-Us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dynamic Table</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+        
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+       
+    
+  </head>
+  <body>
+      <div id = "form">
+          <form id="myform" autocomplete="off">
+              <h2> Welcome to the interactive dynamic table </h2>
+              The number of rows: <br>
+              <input id = "min_row" type = "text" name = "min_row" placeholder = "Enter row lower bound" value = 0>
+                  
+              <div id="min_row_slider" class="inputslider"></div><br>
+              
+              <input id = "max_row" type = "text" name = "max_row" placeholder = "Enter row upper bound" value = 1>
+                  
+              <div id="max_row_slider" class="inputslider"></div><br>
+              
+              <br>
+              The number of columns: <br>
+              <input id = "min_col" type = "text" name = "min_col" placeholder = "Enter column lower bound" value = 0>
+                  
+              <div id="min_col_slider" class="inputslider"></div><br>
+              
+              <input id = "max_col" type = "text" name = "max_col" placeholder = "Enter column upper bound" value = 1>
+                  
+              <div id="max_col_slider" class="inputslider"></div><br>
+              
+              <br>
+              <input id = "submit" type = "submit" class = "submit_button" value = "Regenerate Table" >
+              <input id = "removeAllTabs" type = "submit" class = "submit_button" value = "Remove All Tabs"/>
+         
+          </form>
+      </div>
+      <div class = "container">
+          <table id = "my_table"> </table>
+      </div>
+      
+      <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+          <h4>After stored a table, it will display here:</h4>
+          <ul>
+          </ul>
+      </div>
+      
+      <script src="js/script.js"></script>
+      </div> <!-- end container div-->
+  </body>
+</html>
