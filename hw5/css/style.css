@@ -1,0 +1,80 @@
+/*
+File: style.css
+GUI Assignment5: Implementing a Bit of Scrabble with Drag-and-Drop
+Vu Ho, UMass Lowell Computer Science
+Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+updated by VH on Dec 15, 2021 at 11:34 PM
+ 
+using c01.css file of in-class4
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800italic);
+
+html, body {
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#scoreBoard {
+    width: 1100px;
+    margin: 30px 0px 10px 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #339933;
+
+    
+}
+#scoreBoard div{
+    display: inline-block;
+    
+}
+#scoreBoard > div > div:nth-child(1) {
+    width: 195px;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    font-weight: lighter;
+}
+
+
+#scrabble-board img {
+    height: 82px;
+    margin: 15px;
+    width: 76px;
+    margin: 0 auto 50px auto;
+    border: 3px solid #000000;
+}
+
+.scrabble-rack {
+    min-height: 100px;
+    width: 600px;
+    margin-top: 20px
+    text-align: center;
+    
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../rack.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+}
+
+.scrabble-rack img {
+    height: 80px;
+    padding: 2px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 50px;
+}

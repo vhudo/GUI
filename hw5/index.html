@@ -1,0 +1,57 @@
+<!--
+File: index.html
+GUI Assignment5: Implementing a Bit of Scrabble with Drag-and-Drop
+Vu Ho, UMass Lowell Computer Science
+Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+updated by VH on Dec 15, 2021 at 11:34 PM
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Scrabble Board</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        
+
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        
+    </head>
+
+    <body>
+        <h1>Scrabble Board with Drag-and-Drop</h1>
+
+        <div class="container">
+            <!-- Score tracker -->
+            <div id="scoreBoard">
+              <div>
+                <div id="word">Word:</div>
+              </div>
+              <div>
+                <div id="score">Score: 0</div>
+              </div>
+              <div>
+                <div id="total-score">Total Score: 0</div>
+              </div>
+            </div>
+
+            <div id="scrabble-board"></div>
+
+            <div class="scrabble-rack"></div>
+
+            <div class="buttons">
+                <button id="reset-word" type="button" class="btn btn-primary">Restart Word</button>
+                <button id="submit-word" type="button" class="btn btn-warning">Submit Word</button>
+            </div>
+
+        </div>
+
+    </body>
+</html>
