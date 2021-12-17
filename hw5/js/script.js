@@ -1,13 +1,15 @@
 /*
 File: script.js
-GUI Assignment4: Creating an Interactive Dynamic Table
-Vu Ho, UMass Lowell Computer Science
-Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
-updated by VH on Nov 11, 2021 at 11:37 PM
+ GUI Assignment5: Implementing a Bit of Scrabble with Drag-and-Drop
+ Vu Ho, UMass Lowell Computer Science
+ Copyright (c) 2021 by Vu. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+ updated by VH on Dec 15, 2021 at 11:34 PM
  
 source:
  .validate() jQuery Plugin: https://jqueryvalidation.org/
  https://jqueryvalidation.org/documentation/
+ http://yongcho.github.io/GUI-Programming-1/assignment9.html
+ https://johnresig.com/blog/dictionary-lookups-in-javascript/
 */
 
 var row_obj = [];
@@ -25,9 +27,6 @@ var REMAINING_LETTERS = 7;
 
 const NUM_TILES = 15;
 const SCORING_VALUES = [
-    /* Theres 27 letters, each with an assigned value, and a amount.
-       Removing blanks for now. See source #2 for more info about tuples in JS.
-     */
     {"letter":"A", "value":1, "amount":9},
     {"letter":"B", "value":3, "amount":2},
     {"letter":"C", "value":3, "amount":2},
@@ -70,10 +69,10 @@ function reset_word() {
     total_score = 0;
     multiply_word = 1;
     document.getElementById('word').innerHTML = "Word: ";
-    document.getElementById('score').innerHTML = "Current Score: 0";
+    document.getElementById('score').innerHTML = "Score: 0";
     document.getElementById('total-score').innerHTML = "Total Score: 0";
     
-    populated_board_tiles();
+    create_board_tiles();
     prepare_drop();
 }
 
@@ -90,6 +89,7 @@ function print_arr(word) {
 function prepare_drop() {
     /* Initialize the drag-and-drop mechanics of the tiles/rack/board.
      https://www.pureexample.com/jquery-ui/draggable-snap-to.html
+     https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
     */
     $(".board-tile").droppable({
         accept: '.tile',
@@ -97,14 +97,20 @@ function prepare_drop() {
         drop: function(event, ui) {
             var letter = $(ui.draggable).attr('id');
             var element_id = $(this).attr('id');
-            var row_index = element_id[0];
+            if (element_id[1] == '-'){
+                var row_index = element_id[0];
+            }
+            else{
+                var row_index = Number(element_id[1]);
+                row_index += 10;
+            }
             
+            //console.log(row_index);
 
             row_obj[row_index].letter_id = letter;
             
            
             curr_score = update_score_word();
-            
             document.getElementById('score').innerHTML = "Score: " + curr_score;
         
            
@@ -114,6 +120,7 @@ function prepare_drop() {
             var letter = ui.draggable.attr('id');
             var drop_id = $(this).attr('id');
             var row_index = drop_id[0];
+           
 
             if (letter == row_obj[row_index].letter_id) {
                 row_obj[row_index].letter_id = "";
@@ -130,7 +137,9 @@ function prepare_drop() {
                 multiply_word = 1;
                 curr_score /= 2;
             }
-            $("#score").html("Score: " + curr_score);
+            
+           
+            document.getElementById('score').innerHTML = "Score: " + curr_score;
         }
     });
 
@@ -158,7 +167,6 @@ function prepare_drop() {
 }
 
 function create_board() {
-    /* Create a board with seven tiles. Basing the board off the one in hw9 pdf */
     var board = document.getElementById('scrabble-board');
 
     for (var i = 0; i < NUM_TILES; i++) {
@@ -175,7 +183,7 @@ function create_board() {
             id = 'double-letter';
         }
         else {
-            src_file = 'Scrabble_Tiles/Scrabble_Tile_Blank.jpg';
+            src_file = 'Scrabble_Tiles/Scrabble_Tile__.jpg';
             id = 'blank';
         }
 
@@ -193,13 +201,12 @@ function create_board() {
     }
 }
 
-function populated_board_tiles() {
+function create_board_tiles() {
     /* Populate the tiles in the rack by generating a random number and indexing
        the scoring values dictionary. Append that associated letter png to the rack.
-       See source #4 for more information.
     */
     for (var i = 0; i < REMAINING_LETTERS; i++) {
-        var rand_index = Math.floor(Math.random() * 26);
+        var rand_index = Math.floor(Math.random() * 27);
         var letter = SCORING_VALUES[rand_index].letter;
 
         if (DEBUG) {
@@ -213,16 +220,17 @@ function populated_board_tiles() {
 
 
 function update_score_word() {
-    /* Iterate through each letter in the word, checking if that letter is a valid
-       entry in the scoring dictionary. If true, add that value to the total score.
+    /* Iterate through each letter in the word, checking if that letter is a valid. If true, add that value to the total score and word.
     */
     var score = 0;
     var letter_score = 0;
     
     curr_score = 0;
     curr_word = "";
-    word = [];
-
+    var word = [];
+    
+    console.log(row_obj.length);
+    console.log(SCORING_VALUES.length);
     for (var i = 0; i < row_obj.length; i++) {
         
          if (row_obj[i].type.includes('blank') ||
@@ -234,16 +242,16 @@ function update_score_word() {
         for (var j = 0; j < SCORING_VALUES.length; j++) {
             if( (row_obj[i].letter_id[5] == SCORING_VALUES[j].letter)) {
                 curr_word += row_obj[i].letter_id[5];
+                console.log(curr_word);
                 word.push(curr_word);
+                console.log(word);
                 
                 if (row_obj[i].type.includes('double-letter')) {
                     multiply_letter = 2;
-                } else {
-                    multiply_letter = 1;
-                }
-                
-                if(row_obj[i].type.includes('double-word')){
+                } else if(row_obj[i].type.includes('double-word')){
                     multiply_word = 2;
+                } else if(row_obj[i].type.includes('blank')){
+                    multiply_letter = 1;
                 }
 
                 letter_score = (SCORING_VALUES[j].value * multiply_letter);
@@ -258,27 +266,28 @@ function update_score_word() {
     curr_score += score
     if (multiply_word == 1){
         curr_score *= multiply_word
-    } else {
+    } else if  (multiply_word == 2){
         curr_score *= multiply_word
     }
     //console.log(curr_score);
-   
+    
+    //console.log(word.length);
+    //console.log(word);
+    
     word = (word[word.length - 1])
+    console.log(word);
+   
     if (word == ""){
         alert('You need to play at least two letters');
         return (curr_score - letter_score);
-    }
-    else{
+    } else{
         var rgxDisconnectedWord = new RegExp("[A-Z_]\xB7\xB7+[A-Z_]");
         if (rgxDisconnectedWord.test(word)) {
             alert('Except for the first letter, all sub-subsequent letters must be placed directly next to or below another letter with no space');
             flag = true;
-            //console.log(curr_score - letter_score);
             return (curr_score - letter_score);
         }
-        else{
-            flag = false;
-        }
+        
     }
     
     curr_word = "";
@@ -324,6 +333,14 @@ function find_word_length() {
 
     return length;
 }
+function shuffle_word(){
+    clear_letter_id()
+    $(".scrabble-rack").empty();
+    document.getElementById('word').innerHTML = "Word: ";
+    document.getElementById('score').innerHTML = "Score: 0";
+    create_board_tiles();
+    prepare_drop()
+}
 
 function update_after_submit() {
     /* Simple helper function that updates head information about last word scoring */
@@ -342,13 +359,14 @@ function update_after_submit() {
     }
 
     
-    document.getElementById("total-score").innerHTML = "Total Score: " + total_score;
+    
 
     clear_letter_id()
     $(".scrabble-rack").empty();
     document.getElementById('word').innerHTML = "Word: ";
-    document.getElementById('score').innerHTML = "Current Score: 0";
-    populated_board_tiles();
+    document.getElementById('score').innerHTML = "Score: 0";
+    document.getElementById("total-score").innerHTML = "Total Score: " + total_score;
+    create_board_tiles();
     prepare_drop()
 }
 
@@ -364,7 +382,7 @@ function isDictionaryWord(possibleWord) {
 isDictionaryWord.dict = {};
 // Do an ajax request for the dictionary file.
 $.ajax({
-  url: "../dictionary.txt",
+  url: "../hw5/dictionary.txt",
   success: function(result) {
     // Get an array of all the words.
     var words = result.split("\n");
@@ -380,7 +398,7 @@ $.ajax({
 
 $(document).ready(function () {
     create_board()
-    populated_board_tiles()
+    create_board_tiles()
     prepare_drop()
 
     $("#reset-word").click(function () {
@@ -389,6 +407,10 @@ $(document).ready(function () {
 
     $("#submit-word").click(function () {
         update_after_submit()
+    });
+    
+    $("#shuffle-word").click(function(){
+        shuffle_word()
     });
 
 });
