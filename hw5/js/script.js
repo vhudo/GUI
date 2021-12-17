@@ -381,9 +381,7 @@ function isDictionaryWord(possibleWord) {
 // The dictionary lookup object
 isDictionaryWord.dict = {};
 // Do an ajax request for the dictionary file.
-$.ajax({
-  url: "../hw5/dictionary.txt",
-  success: function(result) {
+$.get({url: "../hw5/dictionary.txt",function(result) {
     // Get an array of all the words.
     var words = result.split("\n");
 
@@ -391,7 +389,7 @@ $.ajax({
     // This will allow for fast lookups later. All words are converted to capital letters
     // to make things simple since Scrabble is case insensitive.
     for (var i = 0; i < words.length; ++i) {
-      isDictionaryWord.dict[words[i].toUpperCase()] = true;
+      isDictionaryWord.dict[words[i].toLowerCase()] = true;
     }
   }
 });
