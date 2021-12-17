@@ -18,13 +18,19 @@ html, body {
 body {
     height: 100%;
     width: 100%;
+    background: #0279b3;
+}
+
+.container{
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 #scoreBoard {
-    width: 1100px;
+    width: 1230px;
     margin: 30px 0px 10px 0px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #339933;
+    border-bottom: 1px solid #000000;
 
     
 }
@@ -40,6 +46,8 @@ body {
 h1 {
     text-align: center;
     font-weight: lighter;
+    padding-top:100px;
+    padding-bottom:50px;
 }
 
 
@@ -54,7 +62,7 @@ h1 {
 .scrabble-rack {
     min-height: 100px;
     width: 600px;
-    margin-top: 20px
+    margin-top: 20px;
     text-align: center;
     
     
