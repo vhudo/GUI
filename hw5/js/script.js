@@ -393,7 +393,7 @@ $.ajax({
     // This will allow for fast lookups later. All words are converted to capital letters
     // to make things simple since Scrabble is case insensitive.
     for (var i = 0; i < words.length; ++i) {
-      isDictionaryWord.dict[words[i].toLowerCase()] = true;
+      isDictionaryWord.dict[words[i].toUpperCase()] = true;
     }
   }
 });
