@@ -352,7 +352,10 @@ function update_after_submit() {
         alert('You need to play at least two letters in order to submit a valid word for scoring! You are current at ' + curr_word_length + ' letters.');
         return false;
     }
+
     
+    
+
     clear_letter_id()
     $(".scrabble-rack").empty();
     document.getElementById('word').innerHTML = "Word: ";
@@ -361,6 +364,33 @@ function update_after_submit() {
     create_board_tiles();
     prepare_drop()
 }
+/*
+// Checks if a string is a valid dictionary word.
+function isDictionaryWord(possibleWord) {
+  if (possibleWord.length > 0 && isDictionaryWord.dict[possibleWord].toLowerCase()) {
+    return true;
+  }
+
+  return false;
+}
+// The dictionary lookup object
+isDictionaryWord.dict = {};
+// Do an ajax request for the dictionary file.
+$.ajax({
+  url: "../hw5/dictionary.txt",
+  success: function(result) {
+    // Get an array of all the words.
+    var words = result.split("\n");
+
+    // Add them as properties to the dictionary lookup object.
+    // This will allow for fast lookups later. All words are converted to capital letters
+    // to make things simple since Scrabble is case insensitive.
+    for (var i = 0; i < words.length; ++i) {
+      isDictionaryWord.dict[words[i]] = true;
+    }
+  }
+});
+*/
 
 $(document).ready(function () {
     create_board()
