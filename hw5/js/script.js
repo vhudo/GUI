@@ -305,6 +305,11 @@ function update_score_word() {
     console.log(curr_word);
     document.getElementById('word').innerHTML = "Word: " + curr_word;
     
+    if (isDictionaryWord(curr_word) == false) {
+        console.log(isDictionaryWord(curr_word));
+        //alert('The word must be found in the dictionary');
+        flag = false;
+    }
     
    
 
@@ -354,7 +359,7 @@ function update_after_submit() {
         return false;
     }
     
-    if (isDictionaryWord(curr_word) == false) {
+    if (flag == false) {
         console.log(isDictionaryWord(curr_word));
         alert('The word must be found in the dictionary');
         return false
