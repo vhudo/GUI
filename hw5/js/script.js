@@ -229,8 +229,7 @@ function update_score_word() {
     curr_word = "";
     var word = [];
     
-   // console.log(row_obj.length);
-   // console.log(SCORING_VALUES.length);
+  
     for (var i = 0; i < row_obj.length; i++) {
         
          if (row_obj[i].type.includes('blank') ||
@@ -242,8 +241,9 @@ function update_score_word() {
         for (var j = 0; j < SCORING_VALUES.length; j++) {
             if( (row_obj[i].letter_id[5] == SCORING_VALUES[j].letter)) {
                 curr_word += row_obj[i].letter_id[5];
+                console.log(curr_word);
                 word.push(curr_word);
-                
+                console.log(word);
                 
                 if (row_obj[i].type.includes('double-letter')) {
                     multiply_letter = 2;
@@ -301,6 +301,7 @@ function update_score_word() {
     }
     
     
+    
     console.log(curr_word);
     document.getElementById('word').innerHTML = "Word: " + curr_word;
     
@@ -337,27 +338,20 @@ function shuffle_word(){
 }
 
 function update_after_submit() {
+    /* Simple helper function that updates head information about last word scoring */
     var curr_word_length = find_word_length();
     multiply_word = 0;
     total_score += curr_score
-    console.log('1' + isDictionaryWord(curr_word));
-   
+
+    if (flag == true) {
+        alert('Please double check the title!!!');
+        return false;
+    }
     
     if (curr_word_length < 2) {
         alert('You need to play at least two letters in order to submit a valid word for scoring! You are current at ' + curr_word_length + ' letters.');
         return false;
     }
-    
-    if (flag == true) {
-        alert('Please double check!!!');
-        return false;
-    }
-    
-   /* if (isDictionaryWord(curr_word)) {
-        alert('The word must be found in the dictionary');
-        return false;
-    }
-    */
 
     
     
@@ -373,7 +367,7 @@ function update_after_submit() {
 /*
 // Checks if a string is a valid dictionary word.
 function isDictionaryWord(possibleWord) {
-  if (possibleWord.length > 0 && isDictionaryWord.dict[possibleWord.toLowerCase()]) {
+  if (possibleWord.length > 0 && isDictionaryWord.dict[possibleWord].toLowerCase()) {
     return true;
   }
 
