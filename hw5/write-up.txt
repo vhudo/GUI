@@ -1,0 +1,35 @@
+Vu Ho
+Homework 5
+
+
+
+This assignment are to give you additional experience working with the jQuery UI and to pull together much of what we’ve been doing throughout the semester.
+I created a scrabble board one line.
+--------------------------------------------------------------------------------------------------
+features fully working:
+
+ * letter tiles in the player’s “hand” are selected randomly from a data structure with the proper distribution of the letters
+ * letter tiles can be dragged-and-dropped onto target Scrabble squares
+ * program identifies which letter tile is dropped onto which Scrabble square
+ * score is tallied correctly, including consideration of bonus square multipliers
+ * the board is cleared after each round so that a new word can be played
+ * after playing a word, only the number of letter tiles needed to bring the player’s “hand” back
+to 7 tiles are selected
+ * score is kept for multiple words until the user restart a new game (implement next vs. restart)
+ * Tiles can only be dragged from the “rack” to Scrabble board. If the user drop them anywhere
+else, they will be bounced back to the “rack”.
+ * Once the tile is placed on the Scrabble board, it can be moved back to the “rack”
+ * user can always restart the game
+--------------------------------------------------------------------------------------------------
+features partially working:
+
+ * any number of words can be played until the player wishes to quit or depletes all tiles.( It does not have function to delete all tiles.)
+ * Except for the first letter, all sub-subsequent letters must be placed directly next to or below
+another letter with no space. Else, they will bounce back to the “rack” (the aleart will be appear, but the title can not bounce back to the "rack")
+--------------------------------------------------------------------------------------------------
+features currently working:
+
+ * Except for the first letter, all sub-subsequent letters must be placed directly next to or below
+another letter with no space. Else, they will bounce back to the “rack” (I am working to make the title bounce back to the rack if title is not valid).
+ * Validating to see if a word that the user enters is valid (from /usr/share/dict/words)
+
