@@ -309,7 +309,7 @@ function update_score_word() {
     if (isDictionaryWord(curr_word)) {
         console.log(isDictionaryWord(curr_word));
         alert('The word must be found in the dictionary');
-        flag = true;
+        flag = false;
         return (curr_score - letter_score);
     }
     
@@ -349,7 +349,7 @@ function update_after_submit() {
     var curr_word_length = find_word_length();
     multiply_word = 0;
     total_score += curr_score
-
+    console.log('1' + isDictionaryWord(curr_word));
    
     
     if (curr_word_length < 2) {
