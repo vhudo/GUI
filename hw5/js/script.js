@@ -308,8 +308,9 @@ function update_score_word() {
     console.log(isDictionaryWord(curr_word));
     if (isDictionaryWord(curr_word)) {
         console.log(isDictionaryWord(curr_word));
-        //alert('The word must be found in the dictionary');
+        alert('The word must be found in the dictionary');
         flag = true;
+        return (curr_score - letter_score);
     }
     
    
@@ -358,7 +359,7 @@ function update_after_submit() {
     
     if (flag == true) {
         console.log(isDictionaryWord(curr_word));
-        alert('The word must be found in the dictionary');
+        alert('Please double check!!!');
         return false
     }
 
