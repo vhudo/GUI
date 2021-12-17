@@ -306,10 +306,10 @@ function update_score_word() {
     document.getElementById('word').innerHTML = "Word: " + curr_word;
     
     console.log(isDictionaryWord(curr_word));
-    if (isDictionaryWord(curr_word) == false) {
+    if (isDictionaryWord(curr_word)) {
         console.log(isDictionaryWord(curr_word));
         //alert('The word must be found in the dictionary');
-        flag = false;
+        flag = true;
     }
     
    
@@ -349,17 +349,14 @@ function update_after_submit() {
     multiply_word = 0;
     total_score += curr_score
 
-    if (flag == true) {
-        alert('Please double check the title!!!');
-        return false;
-    }
+   
     
     if (curr_word_length < 2) {
         alert('You need to play at least two letters in order to submit a valid word for scoring! You are current at ' + curr_word_length + ' letters.');
         return false;
     }
     
-    if (flag == false) {
+    if (flag == true) {
         console.log(isDictionaryWord(curr_word));
         alert('The word must be found in the dictionary');
         return false
