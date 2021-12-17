@@ -378,10 +378,10 @@ function update_after_submit() {
 // Checks if a string is a valid dictionary word.
 function isDictionaryWord(possibleWord) {
   if (possibleWord.length > 0 && isDictionaryWord.dict[possibleWord]) {
-    return true;
+    return false;
   }
 
-  return false;
+  return true;
 }
 // The dictionary lookup object
 isDictionaryWord.dict = {};
@@ -396,7 +396,7 @@ $.ajax({
     // This will allow for fast lookups later. All words are converted to capital letters
     // to make things simple since Scrabble is case insensitive.
     for (var i = 0; i < words.length; ++i) {
-      isDictionaryWord.dict[words[i].toLowerCase()] = true;
+      isDictionaryWord.dict[words[i].toLowerCase()] = false;
     }
   }
 });
