@@ -356,6 +356,7 @@ function update_after_submit() {
     if (isDictionaryWord(curr_word)) {
         console.log(isDictionaryWord(curr_word));
         alert('The word must be found in the dictionary');
+        return false;
     }
 
     
@@ -372,14 +373,14 @@ function update_after_submit() {
 
 // Checks if a string is a valid dictionary word.
 function isDictionaryWord(possibleWord) {
-  if (possibleWord.length > 0 && isDictionaryWord.dict[possibleWord]) {
+  if (possibleWord.length > 0 && isDictionary[possibleWord]) {
     return true;
   }
 
   return false;
 }
 // The dictionary lookup object
-isDictionaryWord.dict = {};
+isDictionary= {};
 // Do an ajax request for the dictionary file.
 $.get({url: "../hw5/dictionary.txt",function(result) {
     // Get an array of all the words.
@@ -389,7 +390,7 @@ $.get({url: "../hw5/dictionary.txt",function(result) {
     // This will allow for fast lookups later. All words are converted to capital letters
     // to make things simple since Scrabble is case insensitive.
     for (var i = 0; i < words.length; ++i) {
-      isDictionaryWord.dict[words[i].toLowerCase()] = true;
+      isDictionary[words[i].toLowerCase()] = true;
     }
   }
 });
