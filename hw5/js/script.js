@@ -354,7 +354,7 @@ function update_after_submit() {
         return false;
     }
     
-    if (isDictionaryWord(curr_word)) {
+    if (isDictionaryWord(curr_word) == false) {
         console.log(isDictionaryWord(curr_word));
         alert('The word must be found in the dictionary');
         return false
