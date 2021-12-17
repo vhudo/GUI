@@ -383,7 +383,9 @@ function isDictionaryWord(possibleWord) {
 // The dictionary lookup object
 isDictionaryWord.dict = {};
 // Do an ajax request for the dictionary file.
-$.get({url: "../hw5/dictionary.txt",function(result) {
+$.ajax({
+  url: "../hw5/dictionary.txt",
+  success: function(result) {
     // Get an array of all the words.
     var words = result.split("\n");
 
